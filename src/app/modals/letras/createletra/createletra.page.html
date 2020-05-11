@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6"> 
+          <h3 class="ion-text-start">Crear letra</h3>
+        </ion-col>
+        <ion-col size="6"> 
+          <div class="ion-text-end">
+            <ion-button (click)="close()" fill="clear" color="dark">
+              <ion-icon name="close" slot="start"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen> 
+  <div class="ion-padding">    
+    <p style="text-align: left;">Seleccione la nueva letra.</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center> 
+          <form [formGroup]="Formcreateword" padding-right> 
+            <ion-item>
+              <ion-label>Letra a mostrar</ion-label>
+              <ion-select placeholder="Seleccine una letra" okText="Aceptar"
+              cancelText="Cancelar" formControlName="dato">
+              <ion-select-option *ngFor="let word of words" [value]="number"> {{word}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-button 
+              color="primary" 
+              expand="block" 
+              [disabled]="!Formcreateword.valid" 
+              (click)="crearletra()"
+              style="margin-top: 10px;">Crear letra</ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div> 
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+    <ion-list lines="full">
+      <form [formGroup]="updateContactForm" (ngSubmit)="updateForm()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="name" type="text" required></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input formControlName="email" type="text" required>
+          </ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label position="floating">Numero de Telefono</ion-label>
+          <ion-input formControlName="mobile" type="text" required>
+          </ion-input>
+        </ion-item>
+  
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="primary" shape="full" expand="block">Actualizar contacto</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-list>
+  </ion-content>

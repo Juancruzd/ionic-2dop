@@ -1,0 +1,137 @@
+<ion-header> 
+  <ion-toolbar >
+    <ion-buttons slot="start">  
+      <ion-menu-button><ion-icon name="reorder-three-outline"><ion-router-outlet id="content1"></ion-router-outlet></ion-icon></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>    
+<ion-menu side="start" menuId="first" contentId="content1">
+  <ion-header>
+    <ion-toolbar color="primary"> 
+      <h5 style="text-align: lef;margin-left: 10px;">MI CUENTA</h5>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content> 
+    <ion-card>  
+      <ion-card-content> 
+        <ion-list lines="none">
+          <ion-item >
+            <ion-avatar slot="start">
+              <img src="../assets/img/avatar.svg">
+            </ion-avatar>
+            <ion-label>
+              <h3> {{ email }}</h3>
+              <p>Nombre: {{ nombre }}</p>
+              <p>Apellido: {{ apellido }}</p>
+              <p>Genero: {{ gender }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        
+      </ion-card-content>
+    </ion-card> 
+
+    <ion-card>  
+      <ion-card-content>   
+        <div [hidden]=createuser>    
+            <p style="text-align: center;">Ingrese los siguientes datos.
+            </p>
+            <form [formGroup]="Formcreateuser" padding-right>
+              <ion-item>
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input type="text" formControlName="email" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" formControlName="name" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Apellido</ion-label>
+                <ion-input type="text" formControlName="lastname" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Genero</ion-label>
+                <ion-select placeholder="Seleccine uno" okText="Aceptar"
+                cancelText="Cancelar" formControlName="gender">
+                  <ion-select-option value="f">Femenino</ion-select-option>
+                  <ion-select-option value="m">Masculino</ion-select-option>
+                </ion-select>
+              </ion-item>
+          
+              <ion-button 
+                color="primary" 
+                expand="block" 
+                [disabled]="!Formcreateuser.valid" 
+                (click)="crearusuario()">Crear usuario</ion-button>
+          </form>
+          </div> 
+
+        <div [hidden]=updateuser>    
+          <p style="text-align: center;">Actualice su actual informacion.
+          </p>
+          <form [formGroup]="Formupdateuser" padding-right>
+            <ion-item>
+              <ion-label position="floating">Correo</ion-label>
+              <ion-input type="text" formControlName="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input type="text" formControlName="name" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Apellido</ion-label>
+              <ion-input type="text" formControlName="lastname" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Genero</ion-label>
+              <ion-select placeholder="Seleccine uno" okText="Aceptar"
+              cancelText="Cancelar" formControlName="gender">
+                <ion-select-option value="f">Femenino</ion-select-option>
+                <ion-select-option value="m">Masculino</ion-select-option>
+              </ion-select>
+            </ion-item>
+        
+            <ion-button 
+              color="primary" 
+              expand="block" 
+              [disabled]="!Formupdateuser.valid" 
+              (click)="updateususuario()">Actualizar</ion-button>
+        </form>
+        </div>
+      </ion-card-content>
+    </ion-card> 
+
+    <ion-card>
+      <ion-card-content>
+        <ion-button fill="solid" color="danger" (click)="logout()" >
+          Cerrar sesion
+          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+        </ion-button>
+      </ion-card-content> 
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1"> 
+      <ion-icon name="square-outline"></ion-icon>
+      <ion-label>Numeros</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon name="text-outline"></ion-icon>
+      <ion-label>Letras</ion-label> 
+    </ion-tab-button>
+
+    <!--<ion-tab-button tab="tab3">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Tab 3</ion-label>
+    </ion-tab-button>-->
+  </ion-tab-bar> 
+</ion-tabs>   
+
+  

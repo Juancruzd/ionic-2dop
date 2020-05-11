@@ -1,0 +1,53 @@
+<ion-content class="ion-padding" [fullscreen]="true">
+  
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="
+  margin-bottom: 60px; 
+  margin-right: 60px;">
+   <ion-fab-button (click)="addletra()" #cart>
+     <ion-icon name="add-outline"></ion-icon>
+   </ion-fab-button>  
+ </ion-fab> 
+ 
+ <ion-grid padding="true" class="page-centered-element"  >
+ <ion-row> 
+   
+     <ion-col size="12" size-sm="12" size-md="6"  size-lg="6"  size-xl="6" *ngFor="let Letra of Letras" style="margin-top: 10px;"> 
+       <ion-card > 
+       <ion-card-header>
+         <ion-fab vertical="center" horizontal="center" fill="clear" >
+           <ion-fab-button style="    margin: 8px;
+           width: 40px;
+           height: 40px;
+           line-height: 40px; 
+           margin-top: 13px;" color="medium">
+             <ion-icon name="settings-outline"></ion-icon>
+           </ion-fab-button> 
+ 
+           <ion-fab-list side="start" style="margin-inline-end: 46px;">
+             <ion-fab-button (click)="deleteMedia(Letra.$key)"  color="danger" style="margin: 8px;
+             width: 30px;
+             height: 30px;">
+               <ion-icon name="trash-outline"></ion-icon>
+             </ion-fab-button>
+           </ion-fab-list>
+           <ion-fab-list side="end" style="margin-inline-start: 46px;">
+             <ion-fab-button (click)="editMediaModale(Letra.$key)" color="success" style="margin: 8px;
+             width: 30px;
+             height: 30px;">
+               <ion-icon name="pencil-outline"></ion-icon>
+             </ion-fab-button> 
+           </ion-fab-list>
+         </ion-fab>
+        </ion-card-header>
+         <ion-card-content (click)="playaudio(Letra.sound);" #cardcontent style="cursor: pointer;margin-top: 20px;">
+           <!--<img src="../assets/img/numeros/{{Numero.image}}.jpg"/>-->
+           <h1 style="text-align:center;font-size: 60px;">{{Letra.dato}}</h1>
+           <ion-card-subtitle style="text-align: center;">{{Letra.description}}</ion-card-subtitle>  
+         </ion-card-content> 
+       </ion-card> 
+     </ion-col>  
+ </ion-row>
+</ion-grid> 
+
+</ion-content>  
