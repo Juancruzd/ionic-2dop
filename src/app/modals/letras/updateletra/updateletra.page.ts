@@ -12,7 +12,7 @@ import { CrudService } from '../../../services/crud.service';
 export class UpdateletraPage implements OnInit {
   ///parametro que recibe el id para actualizar enviado desde el tab2
   @Input() id: string;
-  ///arrreglo de letras de opciones de registro
+  ///arrreglo de letras de opcio nes de registro
   words: Array<string>= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]; 
   ///Map key number value description
   descriptions: {[key: string]: string} = { 

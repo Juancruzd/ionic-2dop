@@ -12,7 +12,7 @@ const routes: Routes = [
                                                                 ////si esta logueado se mantiene si no se manda a login
       import('./tabs/tabs.module').then(m => m.TabsPageModule), canActivate:[AuthPageTabsGuard]
   },
-  {
+  { 
     path: 'login',
     loadChildren: () =>                                           ////Asiganar el guard a Login
                                                                   ///cuando se inicia sesion o se viene de registro se manda a tabs

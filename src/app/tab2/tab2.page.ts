@@ -19,6 +19,10 @@ export class Tab2Page implements OnInit {
   ngOnInit() {
     //inicializo la lista de Media
     this.fetchMedia(); 
+    ///animacion de fab
+    setInterval(() => {
+      this.animateCSS('tada',false,this.fab); 
+    }, 5000);
   }
   //funcion para inicializar la lista de Media
   fetchMedia() {
@@ -68,18 +72,14 @@ export class Tab2Page implements OnInit {
     await alert.present(); 
   } 
   ///funcion para abrir modal enviando el id para actualizar
-  async editMediaModale(id){ 
-    this.animateCSS('bounceOutLeft', true);
+  async editMediaModale(id){  
     const modal = await this.modal.create({
       component: UpdateletraPage,
       cssClass:'window-modal',
       componentProps: {
         'id': id
       }
-    });
-    modal.onWillDismiss().then(() => { 
-      this.animateCSS('bounceInLeft');
-    });
+    }); 
     return await modal.present();
   }
   //funcion para reproducir audio con parametro del nombre del elemento
@@ -91,20 +91,20 @@ export class Tab2Page implements OnInit {
   } 
   ///funcion para abrir modal para crear una nueva letra
   async addletra(){
-    this.animateCSS('bounceOutLeft', true);
+    this.animateCSS('bounceOutLeft', true,this.fab);
     const modal = await this.modal.create({
       component: CreateletraPage,
       cssClass:'window-modal'
     });
     modal.onWillDismiss().then(() => {
       this.fab.nativeElement.classList.remove('animated', 'bounceOutLeft')
-      this.animateCSS('bounceInLeft');
+      this.animateCSS('bounceInLeft',false,this.fab);
     });
     return await modal.present();
   }
   
-  animateCSS(animationName, keepAnimated = false) {
-    const node = this.fab.nativeElement;
+  animateCSS(animationName, keepAnimated = false,idelement) {
+    const node = idelement.nativeElement;
     node.classList.add('animated', animationName)
     
     //https://github.com/daneden/animate.css

@@ -21,9 +21,12 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CreatenumeroPageModule } from '../app/modals/numeros/createnumero/createnumero.module';
 import { UpdatenumeroPageModule } from '../app/modals/numeros/updatenumero/updatenumero.module';
 import { CreateletraPageModule } from '../app/modals/letras/createletra/createletra.module';
-import { UpdateletraPageModule } from '../app/modals/letras/updateletra/updateletra.module';
+import { UpdateletraPageModule } from '../app/modals/letras/updateletra/updateletra.module'; 
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
       //inicializar nuestra conexion o aplicacion de firebase con sus configuraciones
